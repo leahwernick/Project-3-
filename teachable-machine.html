@@ -46,6 +46,7 @@
     <p>
       Below is our interactive Teachable Machine demo. Use your camera to see the model in action —
       it will classify what it sees in real time based on the categories we trained it on.
+      <strong>Try showing a peace sign ✌️, both hands, or no hands</strong> to see how the model responds!
     </p>
 
     <!-- Embedded Demo -->
@@ -65,20 +66,113 @@
       all classification happens in your browser.</em>
     </p>
 
-    <!-- Reflection Section -->
-    <h2>What We Learned</h2>
+    <!-- Project Statement -->
+    <h2>Project Statement</h2>
 
     <p>
-      Working with Teachable Machine helped us see machine learning not as an abstract, distant technology,
-      but as something we can interact with and critique. Training the model ourselves made the process more
-      transparent — we could see exactly what data went in and how it influenced what came out.
+      The process of creating our own machine learning classification model using Google's Teachable Machine
+      has been both a technical and reflective experience. This project required us to not only build an
+      algorithm capable of recognizing images or sounds, but also to critically think about the data that
+      powers such systems and the broader implications of artificial intelligence in society. By collecting
+      original data, training a model, and evaluating its performance, we gained firsthand insight into how
+      machine learning systems are constructed and where their limitations lie. At the same time, reflecting
+      on <em>Unmasking AI</em> by Joy Buolamwini helped contextualize our experience within ongoing discussions
+      about bias, fairness, and accountability in AI.
     </p>
 
     <p>
-      This experience reinforced a key idea from LIS 500: <strong>technology is not neutral</strong>. Every
-      machine learning model reflects the choices of whoever built and trained it — what categories they chose,
-      whose data they used, and what they decided to leave out. Recognizing this is the first step toward
-      building more <strong>equitable and accountable</strong> systems.
+      Our project began with the data collection phase, which was one of the most important and challenging
+      components. Each group member contributed 100 original samples, resulting in a dataset of several hundred
+      images. This requirement forced us to think carefully about what "original" data means and how consistency
+      affects model performance. For example, when collecting images, we had to consider lighting conditions,
+      camera angles, background environments, and variations in the subject. Initially, we assumed that more
+      data would automatically lead to better results, but we quickly learned that the quality and diversity
+      of the data were just as important as quantity. If all images were taken in the same setting, the model
+      would perform well in that specific context but fail when exposed to new environments.
+    </p>
+
+    <p>
+      Once we compiled our dataset, we used Teachable Machine to train our classification model. The platform
+      made it relatively easy to upload images, label them, and generate a working model. However, the simplicity
+      of the interface masked the complexity of what was happening behind the scenes. The algorithm analyzed
+      patterns in the data and attempted to distinguish between categories based on features it learned during
+      training. When we tested the model, we observed that it could correctly classify many of our inputs, but
+      it also made mistakes, especially when presented with unfamiliar conditions. These errors highlighted the
+      limitations of machine learning systems and the importance of understanding how they are trained.
+    </p>
+
+    <p>
+      One of the most significant lessons we learned from this process was how sensitive machine learning models
+      are to the data they are given. Even small imbalances in the dataset could lead to noticeable differences
+      in performance. For instance, if one category had more varied examples than another, the model would become
+      better at recognizing that category while struggling with others. This experience directly connects to the
+      themes discussed in <em>Unmasking AI</em>, particularly the idea that biased or incomplete datasets can lead
+      to biased outcomes. Although our project was relatively small in scale, it demonstrated how easily these
+      issues can arise.
+    </p>
+
+    <p>
+      In <em>Unmasking AI</em>, Joy Buolamwini discusses how facial recognition systems have historically performed
+      poorly on individuals with darker skin tones due to a lack of diverse training data. While our project did
+      not involve facial recognition specifically, we encountered a similar principle: the model can only learn
+      from what it sees. If certain variations are not represented in the dataset, the algorithm will not perform
+      well when encountering them. This realization made us more aware of the responsibility that comes with
+      designing and training AI systems. It is not enough to simply build a functioning model; we must also ensure
+      that the data used to train it is representative and inclusive.
+    </p>
+
+    <p>
+      Another key takeaway from the book that resonated with our experience is the concept of the
+      <strong>"coded gaze,"</strong> which refers to how the perspectives and biases of developers can influence
+      AI systems. In our project, we made decisions about what categories to include, how to label data, and
+      which examples to collect. These choices shaped the behavior of our model. For example, if we unintentionally
+      favored certain types of images or conditions, the model reflected those biases in its predictions. This
+      reinforced the idea that <strong>AI systems are not neutral</strong> — they are shaped by human decisions
+      at every stage of development.
+    </p>
+
+    <p>
+      Additionally, the project helped us understand the importance of transparency and documentation in machine
+      learning. By uploading our dataset and code to GitHub, we made our work accessible for others to review and
+      replicate. This aligns with the broader call in <em>Unmasking AI</em> for greater accountability in AI
+      development. When systems are opaque, it becomes difficult to identify and address biases or errors. By
+      contrast, open and well-documented projects allow for collaboration and improvement.
+    </p>
+
+    <p>
+      We also reflected on the ethical implications of deploying machine learning systems in real-world contexts.
+      While our model was created for an academic assignment, similar technologies are used in areas such as hiring,
+      law enforcement, and healthcare. Errors or biases in these systems can have serious consequences. Through our
+      project, we gained a deeper appreciation for the need to thoroughly test and evaluate AI systems before they
+      are used in high-stakes situations. This includes not only measuring accuracy but also examining how the model
+      performs across different groups and conditions.
+    </p>
+
+    <p>
+      Another lesson from <em>Unmasking AI</em> that stood out to us is the importance of questioning the
+      assumptions behind AI technologies. It is easy to view machine learning as an objective and reliable tool,
+      but our experience showed that it is far from perfect. The model sometimes produced confident but incorrect
+      predictions, which could be misleading if users are not aware of its limitations. This highlights the need
+      for <strong>critical thinking</strong> when interacting with AI systems. Users should not blindly trust the
+      outputs but instead consider how the system was trained and what its limitations might be.
+    </p>
+
+    <p>
+      The process of embedding a video demonstration of our model further reinforced these ideas. By showcasing
+      the model in action, we were able to observe its strengths and weaknesses more clearly. In some cases, the
+      model performed well under controlled conditions but struggled when variables changed. This visual
+      demonstration made it easier to communicate the challenges of building reliable machine learning systems
+      and underscored the importance of continuous testing and refinement.
+    </p>
+
+    <p>
+      In conclusion, this project provided valuable insights into both the technical and ethical dimensions of
+      machine learning. By building our own classification model, we gained hands-on experience with data
+      collection, training, and evaluation. At the same time, reflecting on <em>Unmasking AI</em> helped us
+      understand the broader implications of our work. We learned that data quality and diversity are critical,
+      that human biases can influence AI systems, and that <strong>transparency and accountability are essential
+      for responsible AI development</strong>. These lessons will continue to shape how we approach technology
+      in the future, reminding us to be both thoughtful creators and critical users of AI systems.
     </p>
 
     <!-- Resource Link -->
