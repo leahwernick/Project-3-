@@ -6,14 +6,14 @@
   <title>Teachable Machine | LIS 500: Code and Power</title>
   <link rel="stylesheet" href="stylepage.css">
 </head>
-
+ 
 <body>
   <div class="container">
-
+ 
     <!-- Site Title -->
     <h1 class="site-title">LIS 500: Code and Power</h1>
     <p class="site-subtitle">Exploring the Socio-Technical Dimensions of Our Digital World</p>
-
+ 
     <!-- Navigation -->
     <nav>
       <a href="index.html">Welcome</a> |
@@ -22,33 +22,33 @@
       <a href="resources.html">Resource Guide</a> |
       <a href="teachable-machine.html" class="active">Teachable Machine</a>
     </nav>
-
+ 
     <!-- Page Heading -->
     <h2>Teachable Machine</h2>
-
+ 
     <p>
       Google's <strong>Teachable Machine</strong> is a free, browser-based tool that lets anyone train a basic
       machine learning model — no coding experience required. You provide examples, the model learns from them,
       and it can then classify new inputs in real time. It's an accessible entry point into understanding how
       <strong>AI and machine learning actually work</strong>.
     </p>
-
+ 
     <p>
       This kind of hands-on tool helps reveal something important: machine learning models are only as good as
       the data they're trained on. Who provides the examples? Whose faces, voices, or gestures are included?
       These questions connect directly to the themes of <strong>bias, power, and representation</strong> we explore
       in LIS 500.
     </p>
-
+ 
     <!-- Live Demo Section -->
     <h2>Live Demo</h2>
-
+ 
     <p>
       Below is our interactive Teachable Machine demo. Use your camera to see the model in action —
       it will classify what it sees in real time based on the categories we trained it on.
       <strong>Try showing a peace sign ✌️, both hands, or no hands</strong> to see how the model responds!
     </p>
-
+ 
     <!-- Embedded Demo -->
     <div style="margin: 24px 0; padding: 24px; border: 1px solid #eee; border-radius: 12px; text-align: center;">
       <button onclick="startDemo()" id="start-btn" style="
@@ -61,60 +61,60 @@
         cursor: pointer;
         margin-bottom: 16px;
       ">Start Webcam Demo</button>
-
+ 
       <div id="demo-area" style="display: none;">
         <div id="webcam-container" style="display: flex; justify-content: center; margin-bottom: 12px;"></div>
         <div id="label-container" style="font-size: 1rem; line-height: 1.8;"></div>
       </div>
     </div>
-
+ 
     <p class="small">
       <em>Note: This demo will request access to your camera. No images or video are stored or transmitted —
       all classification happens in your browser.</em>
     </p>
-
+ 
     <!-- Teachable Machine Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
     <script>
       const MODEL_URL = "https://teachablemachine.withgoogle.com/models/G7ZFyJhrz/";
       let model, webcam, labelContainer, maxPredictions;
-
+ 
       async function startDemo() {
         document.getElementById("start-btn").disabled = true;
         document.getElementById("start-btn").textContent = "Loading model...";
-
+ 
         const modelURL = MODEL_URL + "model.json";
         const metadataURL = MODEL_URL + "metadata.json";
-
+ 
         model = await tmImage.load(modelURL, metadataURL);
         maxPredictions = model.getTotalClasses();
-
+ 
         const flip = true;
         webcam = new tmImage.Webcam(400, 400, flip);
         await webcam.setup();
         await webcam.play();
-
+ 
         document.getElementById("demo-area").style.display = "block";
         document.getElementById("start-btn").textContent = "Demo Running";
-
+ 
         document.getElementById("webcam-container").appendChild(webcam.canvas);
-
+ 
         labelContainer = document.getElementById("label-container");
         labelContainer.innerHTML = "";
         for (let i = 0; i < maxPredictions; i++) {
           labelContainer.appendChild(document.createElement("div"));
         }
-
+ 
         window.requestAnimationFrame(loop);
       }
-
+ 
       async function loop() {
         webcam.update();
         await predict();
         window.requestAnimationFrame(loop);
       }
-
+ 
       async function predict() {
         const prediction = await model.predict(webcam.canvas);
         for (let i = 0; i < maxPredictions; i++) {
@@ -130,10 +130,10 @@
         }
       }
     </script>
-
+ 
     <!-- Project Statement -->
     <h2>Project Statement</h2>
-
+ 
     <p>
       The process of creating our own machine learning classification model using Google's Teachable Machine
       has been both a technical and reflective experience. This project required us to not only build an
@@ -144,7 +144,7 @@
       on <em>Unmasking AI</em> by Joy Buolamwini helped contextualize our experience within ongoing discussions
       about bias, fairness, and accountability in AI.
     </p>
-
+ 
     <p>
       Our project began with the data collection phase, which was one of the most important and challenging
       components. Each group member contributed 100 original samples, resulting in a dataset of several hundred
@@ -155,7 +155,7 @@
       of the data were just as important as quantity. If all images were taken in the same setting, the model
       would perform well in that specific context but fail when exposed to new environments.
     </p>
-
+ 
     <p>
       Once we compiled our dataset, we used Teachable Machine to train our classification model. The platform
       made it relatively easy to upload images, label them, and generate a working model. However, the simplicity
@@ -165,7 +165,7 @@
       it also made mistakes, especially when presented with unfamiliar conditions. These errors highlighted the
       limitations of machine learning systems and the importance of understanding how they are trained.
     </p>
-
+ 
     <p>
       One of the most significant lessons we learned from this process was how sensitive machine learning models
       are to the data they are given. Even small imbalances in the dataset could lead to noticeable differences
@@ -175,7 +175,7 @@
       to biased outcomes. Although our project was relatively small in scale, it demonstrated how easily these
       issues can arise.
     </p>
-
+ 
     <p>
       In <em>Unmasking AI</em>, Joy Buolamwini discusses how facial recognition systems have historically performed
       poorly on individuals with darker skin tones due to a lack of diverse training data. While our project did
@@ -185,7 +185,7 @@
       designing and training AI systems. It is not enough to simply build a functioning model; we must also ensure
       that the data used to train it is representative and inclusive.
     </p>
-
+ 
     <p>
       Another key takeaway from the book that resonated with our experience is the concept of the
       <strong>"coded gaze,"</strong> which refers to how the perspectives and biases of developers can influence
@@ -195,7 +195,7 @@
       reinforced the idea that <strong>AI systems are not neutral</strong> — they are shaped by human decisions
       at every stage of development.
     </p>
-
+ 
     <p>
       Additionally, the project helped us understand the importance of transparency and documentation in machine
       learning. By uploading our dataset and code to GitHub, we made our work accessible for others to review and
@@ -203,7 +203,7 @@
       development. When systems are opaque, it becomes difficult to identify and address biases or errors. By
       contrast, open and well-documented projects allow for collaboration and improvement.
     </p>
-
+ 
     <p>
       We also reflected on the ethical implications of deploying machine learning systems in real-world contexts.
       While our model was created for an academic assignment, similar technologies are used in areas such as hiring,
@@ -212,7 +212,7 @@
       are used in high-stakes situations. This includes not only measuring accuracy but also examining how the model
       performs across different groups and conditions.
     </p>
-
+ 
     <p>
       Another lesson from <em>Unmasking AI</em> that stood out to us is the importance of questioning the
       assumptions behind AI technologies. It is easy to view machine learning as an objective and reliable tool,
@@ -221,7 +221,7 @@
       for <strong>critical thinking</strong> when interacting with AI systems. Users should not blindly trust the
       outputs but instead consider how the system was trained and what its limitations might be.
     </p>
-
+ 
     <p>
       The process of embedding a video demonstration of our model further reinforced these ideas. By showcasing
       the model in action, we were able to observe its strengths and weaknesses more clearly. In some cases, the
@@ -229,7 +229,7 @@
       demonstration made it easier to communicate the challenges of building reliable machine learning systems
       and underscored the importance of continuous testing and refinement.
     </p>
-
+ 
     <p>
       In conclusion, this project provided valuable insights into both the technical and ethical dimensions of
       machine learning. By building our own classification model, we gained hands-on experience with data
@@ -239,14 +239,14 @@
       for responsible AI development</strong>. These lessons will continue to shape how we approach technology
       in the future, reminding us to be both thoughtful creators and critical users of AI systems.
     </p>
-
+ 
     <!-- Resource Link -->
     <h2>Try It Yourself</h2>
-
+ 
     <p>
       Interested in building your own model? Google's Teachable Machine is free and works entirely in your browser.
     </p>
-
+ 
     <ul>
       <li>
         <a href="https://teachablemachine.withgoogle.com/" target="_blank" rel="noopener">
@@ -261,12 +261,12 @@
         <span class="small"> (opens the demo in its own tab)</span>
       </li>
     </ul>
-
+ 
     <!-- Footer -->
     <footer>
       <p>Leah Wernick &amp; Kiera Swingle | UW–Madison | LIS 500: Code and Power | Spring 2026</p>
     </footer>
-
+ 
   </div>
 </body>
 </html>
